@@ -1,0 +1,38 @@
+[gd_scene load_steps=9 format=3 uid="uid://bd7mp6onsq0lm"]
+
+[ext_resource type="ArrayMesh" uid="uid://dl5l22u871vls" path="res://addons/kaykit_furniture_bits/Assets/obj/cabinet_medium.obj" id="1_beml6"]
+[ext_resource type="ArrayMesh" uid="uid://c8j36grovigh" path="res://addons/kaykit_furniture_bits/Assets/obj/armchair.obj" id="3_xife7"]
+[ext_resource type="ArrayMesh" uid="uid://co0m80ny4tc2n" path="res://addons/kaykit_furniture_bits/Assets/obj/chair_A.obj" id="4_qyo6p"]
+[ext_resource type="ArrayMesh" uid="uid://grf1lir3mlu7" path="res://addons/kaykit_furniture_bits/Assets/obj/chair_A_wood.obj" id="5_gjj7r"]
+[ext_resource type="ArrayMesh" uid="uid://djbony7lmgthh" path="res://addons/kaykit_furniture_bits/Assets/obj/chair_B.obj" id="6_1mno5"]
+[ext_resource type="ArrayMesh" uid="uid://bt5wrqfgx2ij2" path="res://addons/kaykit_furniture_bits/Assets/obj/chair_B_wood.obj" id="7_nw2ig"]
+[ext_resource type="ArrayMesh" uid="uid://begrvi6gkddwk" path="res://addons/kaykit_furniture_bits/Assets/obj/chair_C.obj" id="8_86ycb"]
+[ext_resource type="ArrayMesh" uid="uid://cowqq57accyhx" path="res://addons/kaykit_furniture_bits/Assets/obj/table_medium.obj" id="9_vu4mb"]
+
+[node name="FurnitureLibrary" type="Node3D"]
+
+[node name="Custom Cabinet" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, 0, -0.5)
+mesh = ExtResource("1_beml6")
+skeleton = NodePath("../FloorTile")
+
+[node name="Armchair" type="MeshInstance3D" parent="."]
+mesh = ExtResource("3_xife7")
+
+[node name="ChairA" type="MeshInstance3D" parent="."]
+mesh = ExtResource("4_qyo6p")
+
+[node name="ChairAWood" type="MeshInstance3D" parent="."]
+mesh = ExtResource("5_gjj7r")
+
+[node name="ChairB" type="MeshInstance3D" parent="."]
+mesh = ExtResource("6_1mno5")
+
+[node name="ChairBWood" type="MeshInstance3D" parent="."]
+mesh = ExtResource("7_nw2ig")
+
+[node name="ChairC" type="MeshInstance3D" parent="."]
+mesh = ExtResource("8_86ycb")
+
+[node name="TableMedium" type="MeshInstance3D" parent="."]
+mesh = ExtResource("9_vu4mb")

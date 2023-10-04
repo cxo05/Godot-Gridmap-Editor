@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://cqp7nkrfko6ue"]
+
+[ext_resource type="ArrayMesh" uid="uid://u3rmw7cqeis" path="res://addons/kaykit_restaurant_bits/Assets/obj/wall.obj" id="1_tub2m"]
+[ext_resource type="ArrayMesh" uid="uid://btuo6no8e4cx1" path="res://addons/kaykit_restaurant_bits/Assets/obj/wall_doorway.obj" id="2_dxo4s"]
+[ext_resource type="ArrayMesh" uid="uid://qc6nlejpwaq4" path="res://addons/kaykit_restaurant_bits/Assets/obj/wall_window_closed.obj" id="3_jovvu"]
+[ext_resource type="ArrayMesh" uid="uid://5yhnjo5pbbce" path="res://addons/kaykit_restaurant_bits/Assets/obj/wall_window_open.obj" id="4_v7qsn"]
+
+[node name="WallLibrary" type="Node3D"]
+
+[node name="Wall" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.55, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, -1)
+mesh = ExtResource("1_tub2m")
+
+[node name="WallDoorway" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, -1)
+mesh = ExtResource("2_dxo4s")
+
+[node name="WallWindowClosed" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, -1)
+mesh = ExtResource("3_jovvu")
+
+[node name="WallWindowOpen" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, -1)
+mesh = ExtResource("4_v7qsn")

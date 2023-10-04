@@ -1,0 +1,6 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://d3lc4ypgeusdi"]
+
+[ext_resource type="Script" path="res://Scripts/Resources/World.cs" id="1_7wl1j"]
+
+[resource]
+script = ExtResource("1_7wl1j")

@@ -1,0 +1,67 @@
+[gd_scene load_steps=8 format=3 uid="uid://d23up3hooyt6y"]
+
+[ext_resource type="PackedScene" uid="uid://brnkdbo101ojn" path="res://Scenes/ModelSelection.tscn" id="1_jtoaw"]
+[ext_resource type="MeshLibrary" uid="uid://ckbjm121m0b3x" path="res://MeshLibraries/WallLibrary.tres" id="2_ax52n"]
+[ext_resource type="Script" path="res://Scripts/CameraControl.cs" id="2_ox0r8"]
+[ext_resource type="Script" path="res://Scripts/CameraFollow.cs" id="3_eshwr"]
+[ext_resource type="MeshLibrary" uid="uid://brm5c00mcotem" path="res://MeshLibraries/FloorLibrary.tres" id="3_wcklu"]
+[ext_resource type="MeshLibrary" uid="uid://s4miafl0yrni" path="res://MeshLibraries/FurnitureLibrary.tres" id="4_m7miy"]
+[ext_resource type="Script" path="res://Scenes/WorldEditorController.cs" id="5_ojbpw"]
+
+[node name="Main" type="Node3D"]
+
+[node name="Control" parent="." instance=ExtResource("1_jtoaw")]
+
+[node name="World" type="Node3D" parent="."]
+
+[node name="WallRight" type="GridMap" parent="World"]
+mesh_library = ExtResource("2_ax52n")
+cell_center_y = false
+data = {
+"cells": PackedInt32Array(7, 65529, 0, 4, 65529, 0, 6, 65529, 0, 5, 65529, 0)
+}
+metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="WallLeft" type="GridMap" parent="World"]
+mesh_library = ExtResource("2_ax52n")
+cell_center_y = false
+metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="Floor" type="GridMap" parent="World"]
+mesh_library = ExtResource("3_wcklu")
+cell_center_y = false
+data = {
+"cells": PackedInt32Array(2, 65530, 1, 2, 65531, 1, 2, 65532, 1, 2, 65533, 1, 3, 65533, 1, 4, 65533, 1, 5, 65533, 1, 6, 65533, 1, 6, 65532, 0, 6, 65531, 0, 6, 65530, 0, 5, 65530, 0, 4, 65530, 0, 3, 65530, 1, 3, 65531, 1, 3, 65532, 1, 5, 65532, 0, 5, 65531, 0, 4, 65532, 0, 4, 65531, 0, 4, 65529, 0, 5, 65529, 0, 6, 65529, 0, 7, 65529, 0, 7, 65530, 0, 7, 65531, 0, 7, 65532, 0)
+}
+metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="Top" type="GridMap" parent="World"]
+mesh_library = ExtResource("4_m7miy")
+cell_center_y = false
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="World"]
+transform = Transform3D(0.707107, -0.454519, 0.541675, 0, 0.766045, 0.642787, -0.707107, -0.454519, 0.541675, 16, 16, 23.1331)
+top_level = true
+light_energy = 0.8
+light_volumetric_fog_energy = 0.0
+
+[node name="CameraPivot" type="Node3D" parent="." node_paths=PackedStringArray("Camera3D")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.825, 17.9374, 11.0385)
+script = ExtResource("2_ox0r8")
+MaxZoom = 30.0
+ZoomFactor = 100.0
+TranslateSpeed = 0.2
+Camera3D = NodePath("Camera3D")
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot"]
+transform = Transform3D(0.707107, -0.454519, 0.541676, 0, 0.766045, 0.642787, -0.707107, -0.454519, 0.541676, 0, 0, 0)
+projection = 1
+size = 10.0
+script = ExtResource("3_eshwr")
+camAccel = 10
+
+[node name="EditorObject" type="Node3D" parent="."]
+script = ExtResource("5_ojbpw")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="EditorObject"]
+sorting_offset = 10.0

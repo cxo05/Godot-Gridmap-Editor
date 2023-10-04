@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://qtmju41p18ln"]
+
+[ext_resource type="ArrayMesh" uid="uid://c7ysasnvkabtc" path="res://addons/kaykit_restaurant_bits/Assets/obj/floor_kitchen_small.obj" id="1_hw2mv"]
+
+[node name="Library" type="Node3D"]
+
+[node name="FloorKitchenSmall" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 0, -0.1, 0)
+mesh = ExtResource("1_hw2mv")

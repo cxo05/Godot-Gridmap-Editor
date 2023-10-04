@@ -1,0 +1,57 @@
+[gd_scene load_steps=5 format=3 uid="uid://bj6khj57sx1lx"]
+
+[ext_resource type="Script" path="res://Scripts/ItemGUIController.cs" id="1_d8cni"]
+[ext_resource type="StyleBox" uid="uid://ccv8pva1xbd45" path="res://GUI Styles/new_style_box_flat.tres" id="1_jbnwr"]
+[ext_resource type="ArrayMesh" uid="uid://c8j36grovigh" path="res://addons/kaykit_furniture_bits/Assets/obj/armchair.obj" id="2_x1ms1"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_x088q"]
+viewport_path = NodePath("Panel/SubViewport")
+
+[node name="MarginContainer" type="MarginContainer"]
+offset_right = 210.0
+offset_bottom = 210.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+script = ExtResource("1_d8cni")
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = ExtResource("1_jbnwr")
+
+[node name="TextureRect" type="TextureRect" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("ViewportTexture_x088q")
+expand_mode = 1
+
+[node name="SubViewport" type="SubViewport" parent="Panel"]
+own_world_3d = true
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(256, 256)
+render_target_update_mode = 4
+
+[node name="Camera" type="Camera3D" parent="Panel/SubViewport"]
+transform = Transform3D(0.707107, -0.454519, 0.541675, 0, 0.766044, 0.642787, -0.707107, -0.454519, 0.541675, 2, 2.7, 2)
+cull_mask = 1048064
+current = true
+fov = 55.0
+
+[node name="MeshInstance" type="MeshInstance3D" parent="Panel/SubViewport"]
+layers = 512
+mesh = ExtResource("2_x1ms1")
+skeleton = NodePath("")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Panel/SubViewport"]
+transform = Transform3D(0.707107, -0.579228, 0.40558, 0, 0.573576, 0.819152, -0.707107, -0.579228, 0.40558, 5, 8, 5)
+light_bake_mode = 1
